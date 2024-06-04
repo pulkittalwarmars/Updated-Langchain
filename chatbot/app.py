@@ -30,8 +30,9 @@ input_text = st.text_input("Search the topic you want")
 llm = AzureChatOpenAI(
     model_name="gpt-4-32k",  # Specify the model name
     deployment_name="pt_rekoncile",  # Specify the deployment name if needed
-    openai_api_base=os.getenv("OPENAI_API_BASE"),  # Base URL for the API
-    openai_api_type=os.getenv("OPENAI_API_TYPE")   # API type (usually 'azure' or similar)
+    azure_endpoint=os.getenv("AZURE_ENDPOINT"),  # Base URL for the API
+    openai_api_type=os.getenv("OPENAI_API_TYPE"),   # API type (usually 'azure' or similar)
+    openai_api_version = os.getenv("OPENAI_API_VERSION")
 )
 output_parser = StrOutputParser()
 chain = prompt | llm | output_parser
