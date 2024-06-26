@@ -40,7 +40,7 @@ prompt_template = ChatPromptTemplate.from_messages([
 chain = prompt_template | model | StrOutputParser()
 
 
-df = pd.read_csv('./datasets/sample-test.csv')
+df = pd.read_csv('./datasets/testdf.csv')
 
 for desc in df['GDM_ProductDesc']:
     try:
